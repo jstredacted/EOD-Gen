@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "EOD Report Generator",
   description: "Generate end-of-day reports with ease",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -26,3 +27,6 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+import './globals.css'
