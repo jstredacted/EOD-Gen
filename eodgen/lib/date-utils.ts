@@ -1,14 +1,21 @@
 import { format } from "date-fns"
-import { utcToZonedTime } from "date-fns-tz"
+import { toZonedTime } from "date-fns-tz"
 
+// Function to get the current date and time formatted for EST
 export function getEstDate(): string {
-  // Get current date in local timezone
+  // Get the current UTC time
   const now = new Date()
 
-  // Convert to EST timezone
+  // Define the time zone for EST (Eastern Standard Time)
+  // Note: 'America/New_York' handles both EST and EDT (Daylight Saving Time) transitions
   const estTimeZone = "America/New_York"
-  const estDate = utcToZonedTime(now, estTimeZone)
 
-  // Format as YYYY-MM-DD
-  return format(estDate, "yyyy-MM-dd")
+  // Convert the UTC time to EST
+  const estDate = toZonedTime(now, estTimeZone)
+
+  // Format the date and time
+  // Example format: 'yyyy-MM-dd HH:mm:ss zzz' (e.g., 2023-10-27 10:30:00 EST)
+  const formattedDate = format(estDate, "yyyy-MM-dd HH:mm:ss zzz")
+
+  return formattedDate
 }
