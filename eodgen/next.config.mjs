@@ -1,4 +1,5 @@
-import { withCloudflare } from '@cloudflare/next-on-pages'
+import pkg from '@cloudflare/next-on-pages'
+const { withCloudflare } = pkg
 
 let userConfig = undefined
 try {
@@ -51,9 +52,4 @@ if (userConfig) {
   }
 }
 
-export default withCloudflare({
-  reactStrictMode: true,
-  experimental: { /* … */ },
-  images: { /* … */ },
-  // etc.
-})
+export default withCloudflare(nextConfig)
