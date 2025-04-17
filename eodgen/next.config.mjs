@@ -1,3 +1,5 @@
+import { withCloudflare } from '@cloudflare/next-on-pages'
+
 let userConfig = undefined
 try {
   // try to import ESM first
@@ -49,4 +51,9 @@ if (userConfig) {
   }
 }
 
-export default nextConfig
+export default withCloudflare({
+  reactStrictMode: true,
+  experimental: { /* … */ },
+  images: { /* … */ },
+  // etc.
+})
