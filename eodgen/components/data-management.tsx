@@ -28,7 +28,7 @@ export function DataManagement({ onBack }: { onBack: () => void }) {
     const checkConnection = async () => {
       try {
         const supabase = getSupabaseClient()
-        const { data, error } = await supabase.from("clients").select("count").limit(1)
+        const { data, error } = await supabase.from("clients").select("id").limit(1)
 
         if (error) {
           console.error("Supabase connection error:", error)
